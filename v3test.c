@@ -8,7 +8,9 @@ int main(int argc, char* argv[])
 	float c[3];
 
 	v3_subtract(c, a, b);
+	printf("c: %f %f %f\n", c[0], c[1], c[2]);
 
+	v3_cross_product(c, a, b);
 	printf("c: %f %f %f\n", c[0], c[1], c[2]);
 
 	return 0;
