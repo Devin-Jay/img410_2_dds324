@@ -65,5 +65,15 @@ float v3_length(float *a)
 // DEVIN
 void v3_normalize(float *dst, float *a)
 {
+    float length = v3_length(a);
+    if (length == 0.0) {
+        dst[0] = 0.0;
+        dst[1] = 0.0;
+        dst[2] = 0.0;
+        return;
+    }
 
+    dst[0] = a[0] / length;
+    dst[1] = a[1] / length;
+    dst[2] = a[2] / length;
 }
