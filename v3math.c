@@ -49,11 +49,6 @@ void v3_scale(float *dst, float s)
 // DEVIN
 float v3_angle(float *a, float *b) // angle between a and b
 {
-    if (v3_length(a) == 0.0 || v3_length(b) == 0.0) {
-        // Avoid division by zero
-        return 0.0;
-    }
-
     return acosf(v3_dot_product(a, b) / (v3_length(a) * v3_length(b)));
 }
 
