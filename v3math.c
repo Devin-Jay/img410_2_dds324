@@ -43,6 +43,7 @@ void v3_scale(float *dst, float s)
 // DEVIN
 float v3_angle(float *a, float *b) // angle between a and b
 {
+
     return 0.0;
 }
 
@@ -55,7 +56,9 @@ float v3_angle_quick(float *a, float *b) // angle between a and b; no cos-1
 // DEVIN
 void v3_reflect(float *dst, float *v, float *n)
 {
-
+    dst[0] = v[0] - 2 * v3_dot_product(v, n) * n[0];
+    dst[1] = v[1] - 2 * v3_dot_product(v, n) * n[1];
+    dst[2] = v[2] - 2 * v3_dot_product(v, n) * n[2];
 }
 
 // JAKE
