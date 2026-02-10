@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 void v3_from_points(float *dst, float *a, float *b); // form v3 from a to b
 void v3_add(float *dst, float *a, float *b);
