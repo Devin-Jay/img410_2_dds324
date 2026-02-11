@@ -126,6 +126,71 @@ int main(int argc, char* argv[])
 	v3_normalize(c, a);
 	printResults("v3_normalize", (float[]){0.0f, 0.0f, 0.0f}, c, a, a, 0.001f);
 
+	//Jake Tests
+	newValues(a, b, (float[]){1.0f, 2.0f, 3.0f}, (float[]){4.0f, 5.0f, 6.0f});
+	v3_add(c, a, b);
+	printResults("v3_add", (float[]){5.0f, 7.0f, 9.0f}, c, a, b, 0.001f);
+
+	newValues(a, b, (float[]){-1.0f, 4.0f, -6.0f}, (float[]){2.0f, -2.0f, 3.0f});
+	v3_add(c, a, b);
+	printResults("v3_add", (float[]){1.0f, 2.0f, -3.0f}, c, a, b, 0.001f);
+
+	newValues(a, b, (float[]){0.0f, 0.0f, 0.0f}, (float[]){7.0f, -8.0f, 9.0f});
+	v3_add(c, a, b);
+	printResults("v3_add", (float[]){7.0f, -8.0f, 9.0f}, c, a, b, 0.001f);
+
+	newValues(a, b, (float[]){1.0f, 2.0f, 3.0f}, (float[]){4.0f, 5.0f, 6.0f});
+	result = v3_dot_product(a, b);
+	printFloatResults("v3_dot_product", 32.0f, result, a, b, 0.001f); 
+
+	newValues(a, b, (float[]){1.0f, 0.0f, 0.0f}, (float[]){0.0f, 1.0f, 0.0f});
+	result = v3_dot_product(a, b);
+	printFloatResults("v3_dot_product", 0.0f, result, a, b, 0.001f);
+
+	newValues(a, b, (float[]){-1.0f, 2.0f, -3.0f}, (float[]){4.0f, -5.0f, 6.0f});
+	result = v3_dot_product(a, b);
+	printFloatResults("v3_dot_product", -32.0f, result, a, b, 0.001f); 
+
+	newValues(a, b, (float[]){1.0f, -2.0f, 3.0f}, (float[]){0.0f, 0.0f, 0.0f});
+	c[0]=a[0]; c[1]=a[1]; c[2]=a[2]; //copy a into output (c)
+	v3_scale(c, 2.0f);
+	printResults("v3_scale", (float[]){2.0f, -4.0f, 6.0f}, c, a, b, 0.001f);
+
+	newValues(a, b, (float[]){1.0f, -2.0f, 3.0f}, (float[]){0.0f, 0.0f, 0.0f});
+	c[0]=a[0]; c[1]=a[1]; c[2]=a[2];
+	v3_scale(c, 0.0f);
+	printResults("v3_scale", (float[]){0.0f, 0.0f, 0.0f}, c, a, b, 0.001f);
+
+	newValues(a, b, (float[]){1.0f, -2.0f, 3.0f}, (float[]){0.0f, 0.0f, 0.0f});
+	c[0]=a[0]; c[1]=a[1]; c[2]=a[2];
+	v3_scale(c, -1.0f);
+	printResults("v3_scale", (float[]){-1.0f, 2.0f, -3.0f}, c, a, b, 0.001f);
+
+	newValues(a, b, (float[]){3.0f, 4.0f, 0.0f}, (float[]){0.0f, 0.0f, 0.0f});
+	result = v3_length(a);
+	printFloatResults("v3_length", 5.0f, result, a, a, 0.001f);
+
+	newValues(a, b, (float[]){0.0f, 0.0f, 0.0f}, (float[]){0.0f, 0.0f, 0.0f});
+	result = v3_length(a);
+	printFloatResults("v3_length", 0.0f, result, a, a, 0.001f);
+
+	newValues(a, b, (float[]){1.0f, 2.0f, 2.0f}, (float[]){0.0f, 0.0f, 0.0f});
+	result = v3_length(a);
+	printFloatResults("v3_length", 3.0f, result, a, a, 0.001f); 
+
+	newValues(a, b, (float[]){1.0f, 0.0f, 0.0f}, (float[]){2.0f, 0.0f, 0.0f});
+	result = v3_angle_quick(a, b);
+	printFloatResults("v3_angle_quick", 1.0f, result, a, b, 0.001f); //cos(0)=1
+
+	newValues(a, b, (float[]){1.0f, 0.0f, 0.0f}, (float[]){0.0f, 1.0f, 0.0f});
+	result = v3_angle_quick(a, b);
+	printFloatResults("v3_angle_quick", 0.0f, result, a, b, 0.001f); //cos(90)=0
+
+	newValues(a, b, (float[]){1.0f, 0.0f, 0.0f}, (float[]){-1.0f, 0.0f, 0.0f});
+	result = v3_angle_quick(a, b);
+	printFloatResults("v3_angle_quick", -1.0f, result, a, b, 0.001f); //cos(180)=-1
+
+
 
 	return 0;
 }

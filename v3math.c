@@ -57,16 +57,8 @@ float v3_angle_quick(float *a, float *b) // angle between a and b; no cos-1
 {
     //dot product / length of a * length of b = cos0
     //do I need to check to make sure I don't divide by 0?
-    float aLen = v3_length(a);
-    float bLen = v3_length(b);
-
-    if(aLen == 0 || bLen == 0)
-    {
-        //no divide by 0
-        return 0.0;
-    }
-
-    return v3_dot_product(a, b) / (aLen * bLen);
+    
+    return v3_dot_product(a, b) / (v3_length(a) * v3_length(b));
 }
 
 // DEVIN
